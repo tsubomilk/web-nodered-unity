@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Node-RED WebSocket Actions</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="buttons-container">
+        <h3>マイコンへ邪魔</h3>
+        <button class="button" id="vibrateButton">バイブ<br>を送る</button>
+      </div>
+      <div class="buttons-container">
+        <h3>Meta Questへ邪魔</h3>
+        <button class="button" id="displayImageButton">お化け画像を送る</button>
+      </div>
+
+    <script>
+        // WebSocket接続の初期化
+        var ws = new WebSocket('ws://nodered-sandbox.cps.private:1880/ws/Web');
+
+        ws.onopen = function() {
+            console.log('WebSocket connected');
+        };
+
+        ws.onerror = function(error) {
+            console.error('WebSocket Error ' + error);
+        };
+
+        // バイブレーションボタンのイベントハンドラ
+        document.getElementById('vibrateButton').addEventListener('click', function() {
+            var jsonMessage = JSON.stringify({ "buttonState": "on" });
+            ws.send(jsonMessage);
+        });
+
+        // 画像表示ボタンのイベントハンドラ
+        document.getElementById('displayImageButton').addEventListener('click', function() {
+            var jsonMessage = JSON.stringify({ "HeaderNumber": 1, "Number": 0 });
+            ws.send(jsonMessage);
+        });
+    </script>
+</body>
+</html>
