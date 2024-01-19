@@ -1,44 +1,49 @@
 body {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .buttons-container {
-    display: flex;
-    justify-content: center;
-    width: 100%; 
-  }
-  
-  .button {
-    width: 100px; /* Sets a fixed width */
-    height: 100px; /* Sets a fixed height to ensure a circle */
-    line-height: 20px; /* Adjusts the line height of the text inside the button */
-    padding: 25px; /* Removes padding */
-    margin: 20px;
-    border-radius: 50%; /* Continues to make the button a perfect circle */
-    border: none;
-    background-color: #007bff;
-    color: white;
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  
-  .button:active {
-    background-color: #00408b;
-  }
-  
+  height: 100vh;
+  margin: 0;
+}
+
+.all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* 縦方向に要素を整列させます */
+  height: 100vh; /* 親要素をビューポートの高さに合わせます */
+}
+
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  width: 100%; 
+}
+
+.button {
+  width: 100px; /* Sets a fixed width */
+  height: 100px; /* Sets a fixed height to ensure a circle */
+  line-height: 20px; /* Adjusts the line height of the text inside the button */
+  padding: 25px; /* Removes padding */
+  margin: 20px;
+  border-radius: 50%; /* Continues to make the button a perfect circle */
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:active {
+  background-color: #00408b;
+}

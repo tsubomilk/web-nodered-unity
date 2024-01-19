@@ -2,17 +2,25 @@
 <html>
 <head>
     <title>Node-RED WebSocket Actions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="buttons-container">
-        <h3>マイコンへ邪魔</h3>
-        <button class="button" id="vibrateButton">バイブ<br>を送る</button>
-      </div>
-      <div class="buttons-container">
-        <h3>Meta Questへ邪魔</h3>
-        <button class="button" id="displayImageButton">お化け画像を送る</button>
-      </div>
+    <div class="all">
+        <h3>マイコンへ邪魔する</h3>
+        <div class="buttons-container">
+            <button class="button" id="vibrateButton">バイブ</button>
+        </div>
+        <h3>Meta Questへ邪魔する</h3>
+        <div class="buttons-container">
+            <button class="button" id="displayImageButton1">チャッキー</button>
+            <button class="button" id="displayImageButton2">お化け</button>
+            <button class="button" id="displayImageButton3">音1</button>
+            <button class="button" id="displayImageButton4">音2</button>
+            <button class="button" id="displayImageButton5">音3</button>
+        </div>
+    </div>
+
 
     <script>
         // WebSocket接続の初期化
@@ -33,8 +41,29 @@
         });
 
         // 画像表示ボタンのイベントハンドラ
-        document.getElementById('displayImageButton').addEventListener('click', function() {
-            var jsonMessage = JSON.stringify({ "HeaderNumber": 1, "Number": 0 });
+        // チャッキー
+        document.getElementById('displayImageButton1').addEventListener('click', function() {
+            var jsonMessage = JSON.stringify({ "HeaderNumber": 3, "Number": 1 });
+            ws.send(jsonMessage);
+        });
+        // お化け
+        document.getElementById('displayImageButton2').addEventListener('click', function() {
+            var jsonMessage = JSON.stringify({ "HeaderNumber": 3, "Number": 2 });
+            ws.send(jsonMessage);
+        });
+        // 音１
+        document.getElementById('displayImageButton3').addEventListener('click', function() {
+            var jsonMessage = JSON.stringify({ "HeaderNumber": 3, "Number": 3 });
+            ws.send(jsonMessage);
+        });
+        // 音２
+        document.getElementById('displayImageButton4').addEventListener('click', function() {
+            var jsonMessage = JSON.stringify({ "HeaderNumber": 3, "Number": 4 });
+            ws.send(jsonMessage);
+        });
+        // 音３
+        document.getElementById('displayImageButton5').addEventListener('click', function() {
+            var jsonMessage = JSON.stringify({ "HeaderNumber": 3, "Number": 5 });
             ws.send(jsonMessage);
         });
     </script>
